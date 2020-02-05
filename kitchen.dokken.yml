@@ -39,7 +39,7 @@ platforms:
   driver:
     image: dokken/centos-8
     pid_one_command: /usr/lib/systemd/systemd
-    
+
 - name: fedora-29
   driver:
     image: dokken/fedora-29
@@ -134,5 +134,18 @@ suites:
         enabled: true
         managed: true
       remi-php72:
+        enabled: true
+        managed: true
+
+- name: remi-php74
+  run_list:
+  - recipe[yum-remi-chef::remi-php74]
+  - recipe[test::default]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+      remi-php74:
         enabled: true
         managed: true
